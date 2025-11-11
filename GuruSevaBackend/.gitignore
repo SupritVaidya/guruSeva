@@ -1,0 +1,43 @@
+# Ignore build output and user-specific files for .NET backend
+
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Visual Studio
+.vs/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Others
+*.dll
+*.pdb
+*.cache
+*.dbmdl
+*.dbmdl
+*.db
+*.mdf
+*.ldf
+
+# Publish output
+publish/
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Rider
+.idea/
+
+# Local environment settings
+appsettings.Development.json
