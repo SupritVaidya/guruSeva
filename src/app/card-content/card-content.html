@@ -14,12 +14,12 @@
 		<div *ngIf="content" class="card shadow p-4 w-100" style="max-width: 700px; margin: auto;">
 			<div class="mb-3 d-flex align-items-center">
 				<span class="badge bg-primary me-2">{{ content.sequenceNumber }}</span>
-				<span class="fw-bold fs-5 me-3">{{ content.name }}</span>
+				<span class="fw-bold fs-2 me-3">{{ content.name }}</span>
 				<button class="btn btn-primary d-flex align-items-center justify-content-center ms-auto" (click)="goBack()" aria-label="Back to Dashboard" style="width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; padding: 0;">
 					<span aria-hidden="true" style="color: #fff; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%">&larr;</span>
 				</button>
 			</div>
-			<div class="mb-3">
+			<div class="mb-3 line-wrapper fs-4">
 				<div class="fw-semibold">श्लोक:</div>
 				<div>{{ content.contentText }}</div>
 			</div>
