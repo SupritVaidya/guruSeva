@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Card } from '../card/card';
+import { ContentServices } from '../../services/content-services';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,26 +10,20 @@ import { Card } from '../card/card';
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
-export class Dashboard {
-  courses = [
-    {
-      id: 1,
-      level: 'A1',
-      title: 'German for Beginners',
-      description: 'Start your German journey with the absolute basics, from greetings to ordering coffee.',
-      progress: 22.22
-    },
-    {
-      id: 2,
-      level: 'A2',
-      title: 'Elementary German',
-      description: 'Build on your basic knowledge to handle simple, routine tasks and conversations.',
-      progress: 0.00
-    }
-  ];
+export class Dashboard implements OnInit {
+  contents: any[] = [];
 
-  openCourse(course: any) {
+  constructor(private contentService: ContentServices) {}
+
+  ngOnInit() {
+    this.contentService.getAll().subscribe({
+      next: (data: any[]) => this.contents = data,
+      error: (err: any) => console.error('Failed to fetch contents', err)
+    });
+  }
+
+  openContent(content: any) {
     // For now, just alert. Replace with router navigation or modal as needed.
-    alert(`Open course: ${course.title}`);
+    alert(`Open content: ${content.name || content.nameEnglish || content.id}`);
   }
 }
