@@ -1,0 +1,19 @@
+<div *ngIf="content" class="container py-4">
+	<div class="card shadow p-4 mx-auto" style="max-width: 500px;">
+		<div class="mb-3 d-flex align-items-center">
+			<span class="badge bg-primary me-2">{{ content.sequenceNumber }}</span>
+			<span class="fw-bold fs-5 me-3">{{ content.name }}</span>
+			<button class="btn btn-primary d-flex align-items-center justify-content-center ms-auto" (click)="goBack()" aria-label="Back to Dashboard" style="width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; padding: 0;">
+				<span aria-hidden="true" style="color: #fff; display: flex; align-items: center; justify-content: center; width: 100%; height: 100%;">&larr;</span>
+			</button>
+		</div>
+		<div class="mb-3">
+			<div class="fw-semibold">Content:</div>
+			<div>{{ content.contentText }}</div>
+		</div>
+		<div *ngIf="content.audioUrl" class="mb-3">
+			<div class="fw-semibold">Audio:</div>
+			<audio controls controlsList="nodownload" [src]="content.audioUrl"></audio>
+		</div>
+	</div>
+</div>

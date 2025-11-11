@@ -1,16 +1,8 @@
 <div class="card custom-card h-100 border-0 shadow-sm position-relative overflow-hidden">
 	<div class="card-body">
-		<div class="d-flex align-items-center mb-3">
-			<span class="badge rounded-pill bg-gradient-primary me-3 fs-6">{{ content.sequenceNumber }}</span>
-			<h5 class="card-title mb-0 fw-bold flex-grow-1">{{ content.name || 'Untitled' }}</h5>
-			<span class="course-icon ms-auto">
-				<img src="https://cdn-icons-png.flaticon.com/512/3135/3135768.png" alt="Content Icon" width="32" height="32" />
-			</span>
-		</div>
-		<p class="card-text text-muted mb-0 fs-6">{{ content.contentText }}</p>
-		<div *ngIf="content.nameEnglish" class="mt-2 small text-primary">{{ content.nameEnglish }}</div>
-		<div *ngIf="content.audioUrl" class="mt-2">
-			<audio controls [src]="content.audioUrl"></audio>
-		</div>
+			<div class="d-flex align-items-center mb-3">
+				<span class="badge rounded-pill bg-gradient-primary me-3 fs-6">{{ content.sequenceNumber }}</span>
+				<h5 class="card-title mb-0 fw-bold flex-grow-1">{{ content.name || 'Untitled' }}</h5>
+			</div>
 	</div>
 </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
 import { Card } from '../card/card';
 import { ContentServices } from '../../services/content-services';
 
@@ -13,7 +14,7 @@ import { ContentServices } from '../../services/content-services';
 export class Dashboard implements OnInit {
   contents: any[] = [];
 
-  constructor(private contentService: ContentServices) {}
+  constructor(private contentService: ContentServices, private router: Router) {}
 
   ngOnInit() {
     this.contentService.getAll().subscribe({
@@ -23,7 +24,6 @@ export class Dashboard implements OnInit {
   }
 
   openContent(content: any) {
-    // For now, just alert. Replace with router navigation or modal as needed.
-    alert(`Open content: ${content.name || content.nameEnglish || content.id}`);
+    this.router.navigate(['/content', content.id]);
   }
 }
