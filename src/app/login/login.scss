@@ -1,0 +1,26 @@
+
+body {
+	background: #e0e7ff !important;
+}
+.container {
+	background: none !important;
+}
+.card {
+	background: #fff;
+}
+.card {
+	border-radius: 1.25rem;
+	border: none;
+}
+input:focus, .form-control:focus {
+	box-shadow: 0 0 0 0.2rem rgba(13,110,253,.25);
+	border-color: #86b7fe;
+}
+button.btn-primary {
+	background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);
+	border: none;
+	transition: background 0.3s;
+}
+button.btn-primary:hover {
+	background: linear-gradient(90deg, #2563eb 0%, #6366f1 100%);
+}
