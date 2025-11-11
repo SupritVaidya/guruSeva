@@ -27,17 +27,19 @@ export class CardContent implements OnInit {
       error: (err) => console.error('Failed to fetch all contents', err)
     });
 
-    // Fetch the current content by id
-    const id = this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.contentService.getById(+id).subscribe({
-        next: (data) => this.content = data,
-        error: (err) => console.error('Failed to fetch content', err)
-      });
-    }
+    // Subscribe to route param changes to reload content on navigation
+    this.route.paramMap.subscribe(params => {
+      const id = params.get('id');
+      if (id) {
+        this.contentService.getById(+id).subscribe({
+          next: (data) => this.content = data,
+          error: (err) => console.error('Failed to fetch content', err)
+        });
+      }
+    });
   }
 
   openContent(id: number) {
-    this.router.navigate(['/card-content', id]);
+    this.router.navigate(['/content', id]);
   }
 }
