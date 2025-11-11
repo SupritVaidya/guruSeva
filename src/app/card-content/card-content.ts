@@ -12,13 +12,22 @@ import { ContentServices } from '../../services/content-services';
 })
 export class CardContent implements OnInit {
   content: any;
+  allContents: any[] = [];
 
   constructor(private route: ActivatedRoute, private contentService: ContentServices, private router: Router) {}
+
   goBack() {
     this.router.navigate(['/dashboard']);
   }
 
   ngOnInit() {
+    // Fetch all content names for the index
+    this.contentService.getAll().subscribe({
+      next: (data) => this.allContents = data,
+      error: (err) => console.error('Failed to fetch all contents', err)
+    });
+
+    // Fetch the current content by id
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.contentService.getById(+id).subscribe({
@@ -26,5 +35,9 @@ export class CardContent implements OnInit {
         error: (err) => console.error('Failed to fetch content', err)
       });
     }
+  }
+
+  openContent(id: number) {
+    this.router.navigate(['/card-content', id]);
   }
 }
