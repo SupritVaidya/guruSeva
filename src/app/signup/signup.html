@@ -1,0 +1,35 @@
+<div class="container d-flex align-items-center justify-content-center min-vh-100">
+	<div class="card shadow-lg p-4" style="width: 100%; max-width: 400px;">
+		<div class="text-center mb-4">
+			<img src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="Signup Icon" width="64" height="64" class="mb-2">
+			<h2 class="mb-0">Sign Up</h2>
+			<p class="text-muted">Create your account</p>
+		</div>
+		<form (ngSubmit)="onSubmit()" #signupForm="ngForm" autocomplete="off">
+			<div class="mb-3">
+				<label for="name" class="form-label">Name</label>
+				<input type="text" id="name" name="name" class="form-control" required [(ngModel)]="name" placeholder="Enter your name">
+			</div>
+			<div class="mb-3">
+				<label for="email" class="form-label">Email address</label>
+				<input type="email" id="email" name="email" class="form-control" required [(ngModel)]="email" placeholder="Enter email">
+			</div>
+			<div class="mb-3">
+				<label for="password" class="form-label">Password</label>
+				<input type="password" id="password" name="password" class="form-control" required [(ngModel)]="password" placeholder="Enter password">
+			</div>
+			<button type="submit" class="btn btn-primary w-100" [disabled]="!signupForm.form.valid">Sign Up</button>
+			<div *ngIf="signupError" class="alert alert-danger mt-2" role="alert">
+				{{ signupError }}
+			</div>
+			<div *ngIf="signupSuccess" class="alert alert-success mt-2" role="alert">
+				{{ signupSuccess }}
+			</div>
+		</form>
+		<div class="text-center mt-3">
+			<span class="text-muted">Already have an account?</span>
+			<a routerLink="/" class="ms-1">Login</a>
+		</div>
+	</div>
+</div>
+<p>signup works!</p>
