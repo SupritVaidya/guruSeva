@@ -22,7 +22,10 @@
 				<a href="#" class="small text-decoration-none">Forgot password?</a>
 			</div>
 			<button type="submit" class="btn btn-primary w-100" [disabled]="!loginForm.form.valid">Login</button>
-		</form>
+				<div *ngIf="loginError" class="alert alert-danger mt-2" role="alert">
+					{{ loginError }}
+				</div>
+				</form>
 			<div class="text-center mt-3">
 				<span class="text-muted">Don't have an account?</span>
 				<a href="#" class="ms-1">Sign up</a>

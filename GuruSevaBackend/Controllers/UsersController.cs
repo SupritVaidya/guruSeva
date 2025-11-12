@@ -27,6 +27,29 @@ namespace GuruSevaBackend.Controllers
             return await _context.Users.ToListAsync();
         }
 
+        // POST: api/Users/login
+        [HttpPost("login")]
+        public async Task<ActionResult<User>> Login([FromBody] LoginRequest request)
+        {
+            // Replace with secure password hashing in production!
+            var user = await _context.Users
+                .FirstOrDefaultAsync(u => u.Username == request.Email && u.PasswordHash == request.Password);
+
+            if (user == null)
+            {
+                return Unauthorized(new { message = "Invalid email or password" });
+            }
+
+            return Ok(user);
+        }
+
+        // DTO for login request
+        public class LoginRequest
+        {
+            public string Email { get; set; }
+            public string Password { get; set; }
+        }
+
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)
