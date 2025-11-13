@@ -16,4 +16,6 @@ public partial class User
     public bool IsApproved { get; set; }
 
     public DateTimeOffset? CreatedAt { get; set; }
+
+    public virtual ICollection<AdminRequest> AdminRequests { get; set; } = new List<AdminRequest>();
 }

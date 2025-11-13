@@ -15,6 +15,8 @@ public partial class GuruSevaDbContext : DbContext
     {
     }
 
+    public virtual DbSet<AdminRequest> AdminRequests { get; set; }
+
     public virtual DbSet<Content> Contents { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
@@ -25,6 +27,21 @@ public partial class GuruSevaDbContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<AdminRequest>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__AdminReq__3213E83FF11A33C1");
+
+            entity.Property(e => e.Id)
+                .ValueGeneratedNever()
+                .HasColumnName("id");
+            entity.Property(e => e.UserId).HasColumnName("user_id");
+            entity.Property(e => e.UserName).HasColumnName("user_name");
+
+            entity.HasOne(d => d.User).WithMany(p => p.AdminRequests)
+                .HasForeignKey(d => d.UserId)
+                .HasConstraintName("FK__AdminRequ__user___36B12243");
+        });
+
         modelBuilder.Entity<Content>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__content__3213E83FF2D5F911");
