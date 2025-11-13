@@ -13,8 +13,7 @@ import { RouterModule } from '@angular/router';
   styleUrl: './signup.scss',
 })
 export class Signup {
-  name = '';
-  email = '';
+  username = '';
   password = '';
   signupError = '';
   signupSuccess = '';
@@ -25,11 +24,10 @@ export class Signup {
     this.signupError = '';
     this.signupSuccess = '';
     // Call backend to create user (POST /api/Users)
-    this.loginService.register(this.name, this.email, this.password).subscribe({
+    this.loginService.register(this.username, this.password).subscribe({
       next: (user) => {
         this.signupSuccess = 'Signup successful! Please wait for approval.';
-        this.name = '';
-        this.email = '';
+        this.username = '';
         this.password = '';
       },
       error: (err) => {

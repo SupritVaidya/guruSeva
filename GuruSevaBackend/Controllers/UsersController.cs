@@ -1,4 +1,6 @@
-﻿using System;
+﻿using System.Security.Cryptography;
+using System.Text;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -31,9 +33,10 @@ namespace GuruSevaBackend.Controllers
         [HttpPost("login")]
         public async Task<ActionResult<User>> Login([FromBody] LoginRequest request)
         {
-            // Replace with secure password hashing in production!
+            // Hash the incoming password
+            string hashedPassword = HashPassword(request.Password);
             var user = await _context.Users
-                .FirstOrDefaultAsync(u => u.Username == request.Email && u.PasswordHash == request.Password);
+                .FirstOrDefaultAsync(u => u.Username == request.Email && u.PasswordHash == hashedPassword);
 
             if (user == null)
             {
@@ -97,13 +100,39 @@ namespace GuruSevaBackend.Controllers
 
         // POST: api/Users
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public class RegisterRequest
         {
+            public string Username { get; set; }
+            public string Password { get; set; }
+            public bool IsApproved { get; set; }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<User>> PostUser(RegisterRequest request)
+        {
+            var user = new User
+            {
+                Username = request.Username,
+                PasswordHash = HashPassword(request.Password),
+                IsApproved = request.IsApproved
+                // Set other fields as needed
+            };
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
+        }
+
+        // Utility: Hash password using SHA256 (replace with a stronger hash in production)
+        private string HashPassword(string password)
+        {
+            if (string.IsNullOrEmpty(password)) return null;
+            using (var sha = SHA256.Create())
+            {
+                var bytes = Encoding.UTF8.GetBytes(password);
+                var hash = sha.ComputeHash(bytes);
+                return BitConverter.ToString(hash).Replace("-", "").ToLower();
+            }
         }
 
         // DELETE: api/Users/5
