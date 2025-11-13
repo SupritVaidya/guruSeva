@@ -2,11 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ContentServices } from '../../services/content-services';
+import { NavBar } from "../nav-bar/nav-bar";
 
 @Component({
   selector: 'app-card-content',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavBar],
   templateUrl: './card-content.html',
   styleUrl: './card-content.scss',
 })

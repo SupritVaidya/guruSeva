@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { Card } from '../card/card';
 import { ContentServices } from '../../services/content-services';
+import { NavBar } from "../nav-bar/nav-bar";
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [CommonModule, Card],
+  imports: [CommonModule, Card, NavBar],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
