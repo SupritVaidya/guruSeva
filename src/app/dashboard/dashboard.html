@@ -1,4 +1,6 @@
 <app-nav-bar></app-nav-bar>
+<div style="margin: 17px;"></div>
+<app-search-bar (searchTermChange)="onSearchTermChange($event)"></app-search-bar>
 <div class="dashboard-container py-4 px-2">
 	<div class="row g-4">
 		<div class="col-md-6 col-lg-4" *ngFor="let content of contents" (click)="openContent(content)" style="cursor:pointer;">

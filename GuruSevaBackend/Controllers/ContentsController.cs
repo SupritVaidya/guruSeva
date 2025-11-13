@@ -41,6 +41,21 @@ namespace GuruSevaBackend.Controllers
             return content;
         }
 
+        [HttpGet("by-english-name/{englishName}")]
+        public async Task<ActionResult<IEnumerable<Content>>> GetContentByEnglishName(string englishName)
+        {
+            var contents = await _context.Contents
+                .Where(c => c.NameEnglish != null && c.NameEnglish.Contains(englishName))
+                .ToListAsync();
+
+            if (contents == null || contents.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return contents;
+        }
+
         // PUT: api/Contents/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

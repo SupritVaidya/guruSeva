@@ -14,6 +14,10 @@ export class ContentServices {
     return this.http.get<any[]>(this.apiUrl);
   }
 
+  searchByEnglishName(term: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/by-english-name/${encodeURIComponent(term)}`);
+  }
+
   getById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }

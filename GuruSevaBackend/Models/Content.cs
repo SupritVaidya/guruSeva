@@ -17,5 +17,6 @@ public partial class Content
 
     public DateTimeOffset? CreatedAt { get; set; }
 
+    [System.ComponentModel.DataAnnotations.Schema.Column("name_english")]
     public string? NameEnglish { get; set; }
 }
