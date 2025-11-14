@@ -5,7 +5,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-panel',
-  imports: [Card, NavBar],
+  imports: [NavBar],
   templateUrl: './admin-panel.html',
   styleUrl: './admin-panel.scss',
 })
