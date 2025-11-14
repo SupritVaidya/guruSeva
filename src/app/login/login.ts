@@ -25,6 +25,7 @@ export class Login {
     this.loginService.login(this.email, this.password).subscribe({
       next: (user) => {
         if (user && (user.isApproved === true || user.IsApproved === true)) {
+          localStorage.setItem('isAdmin', user.isAdmin ? 'true' : 'false');
           this.router.navigate(['/dashboard']);
         } else if (user && (user.isApproved === false || user.IsApproved === false)) {
           this.loginError = 'Request for approval pending';

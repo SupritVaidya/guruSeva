@@ -2,6 +2,7 @@
 	<div class="container-fluid">
 		<a class="navbar-brand" href="#">GuruSeva</a>
 		<div class="d-flex ms-auto">
+			<button *ngIf="isAdmin" class="btn btn-warning me-2" routerLink="/admin">Admin Panel</button>
 			<button class="btn btn-outline-dark" (click)="logout()">Logout</button>
 		</div>
 	</div>

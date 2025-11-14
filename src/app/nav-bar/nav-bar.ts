@@ -1,18 +1,24 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav-bar',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, RouterModule],
   templateUrl: './nav-bar.html',
   styleUrl: './nav-bar.scss',
 })
 export class NavBar {
-  constructor(private router: Router) {}
+  isAdmin = false;
+
+  constructor(private router: Router) {
+    this.isAdmin = localStorage.getItem('isAdmin') === 'true';
+  }
 
   logout() {
-    // Optionally clear any user state here
+    localStorage.removeItem('isAdmin');
     this.router.navigate(['/']);
   }
 }
