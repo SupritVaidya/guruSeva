@@ -15,4 +15,8 @@ export class AdminPanel {
   goBack() {
     this.router.navigate(['/dashboard']);
   }
+
+  openRequests() {
+    this.router.navigate(['/requests']);
+  }
 }

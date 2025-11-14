@@ -8,6 +8,8 @@ import { Login } from './login/login';
 
 import { Signup } from './signup/signup';
 import { CardContent } from './card-content/card-content';
+
+import { Requests } from '../requests/requests';
 import { AdminPanel } from './admin-panel/admin-panel';
 
 export const routes: Routes = [
@@ -16,4 +18,5 @@ export const routes: Routes = [
   { path: 'content/:id', component: CardContent },
   { path: 'signup', component: Signup },
   { path: 'admin', component: AdminPanel },
+  { path: 'requests', component: Requests },
 ];
