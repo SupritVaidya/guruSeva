@@ -10,6 +10,4 @@ public partial class AdminRequest
     public int? UserId { get; set; }
 
     public string? UserName { get; set; }
-
-    public virtual User? User { get; set; }
 }

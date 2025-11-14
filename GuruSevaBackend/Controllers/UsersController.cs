@@ -120,6 +120,15 @@ namespace GuruSevaBackend.Controllers
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
+            // Add an entry to AdminRequests table
+            var adminRequest = new AdminRequest
+            {
+                UserId = user.Id,
+                UserName = user.Username
+            };
+            _context.AdminRequests.Add(adminRequest);
+            await _context.SaveChangesAsync();
+
             return CreatedAtAction("GetUser", new { id = user.Id }, user);
         }
 

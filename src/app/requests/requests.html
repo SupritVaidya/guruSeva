@@ -1,1 +1,29 @@
-<p>requests works!</p>
+<app-nav-bar></app-nav-bar>
+<a routerLink="/admin" class="back-btn" title="Back to Admin Panel">
+	<span class="back-arrow">&#8592;</span>
+</a>
+<div class="container mt-4">
+	<h2>Admin Requests</h2>
+	<div *ngIf="loading">Loading...</div>
+	<div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+	<table *ngIf="!loading && requests.length" class="table table-bordered table-striped mt-3">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Approve</th>
+				<th>Deny</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let req of requests">
+				<td class="requests-table-id">{{ req.userId }}</td>
+				<td class="requests-table-name">{{ req.userName || req.userId}}</td>
+				<td><button class="btn btn-success btn-lg approve-btn" (click)="approve(req.id)">Approve</button></td>
+				<td><button class="btn btn-danger btn-lg deny-btn" (click)="deny(req.id)">Deny</button></td>
+			</tr>
+		</tbody>
+	</table>
+	<div *ngIf="!loading && !requests.length" class="text-muted">No requests found.</div>
+</div>
+

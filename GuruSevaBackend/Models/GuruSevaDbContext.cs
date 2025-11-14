@@ -29,17 +29,13 @@ public partial class GuruSevaDbContext : DbContext
     {
         modelBuilder.Entity<AdminRequest>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__AdminReq__3213E83FF11A33C1");
+            entity.HasKey(e => e.Id).HasName("PK__AdminReq__3213E83F305E221F");
 
-            entity.Property(e => e.Id)
-                .ValueGeneratedNever()
-                .HasColumnName("id");
+            entity.Property(e => e.Id).HasColumnName("id");
             entity.Property(e => e.UserId).HasColumnName("user_id");
-            entity.Property(e => e.UserName).HasColumnName("user_name");
-
-            entity.HasOne(d => d.User).WithMany(p => p.AdminRequests)
-                .HasForeignKey(d => d.UserId)
-                .HasConstraintName("FK__AdminRequ__user___36B12243");
+            entity.Property(e => e.UserName)
+                .HasMaxLength(255)
+                .HasColumnName("user_name");
         });
 
         modelBuilder.Entity<Content>(entity =>
