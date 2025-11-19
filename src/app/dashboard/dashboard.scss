@@ -1,0 +1,8 @@
+body, .dashboard-bg {
+	background: #ffe066 !important; /* pleasant, slightly darker yellow */
+	min-height: 100vh;
+}
+
+.dashboard-container .card, .dashboard-container app-card {
+	background: #fff !important;
+}

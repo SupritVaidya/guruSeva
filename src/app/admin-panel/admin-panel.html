@@ -1,21 +1,22 @@
+<div class="admin-panel-bg">
+  <app-nav-bar></app-nav-bar>
+  <div style="margin: 20px;"></div>
+  <button class="back-arrow-btn mb-3 ms-3" (click)="goBack()">
+    <span class="arrow-icon">&#8592;</span>
+  </button>
 
-<app-nav-bar></app-nav-bar>
-<div style="margin: 20px;"></div>
-<button class="back-arrow-btn mb-3 ms-3" (click)="goBack()">
-  <span class="arrow-icon">&#8592;</span>
-</button>
-
-<div class="admin-card-row">
-  <div class="card">
-    <div class="container">
-      <h4><b>UPLOAD</b></h4>
-      <p>Upload Content</p>
+  <div class="admin-card-row">
+    <div class="card">
+      <div class="container">
+        <h4><b>UPLOAD</b></h4>
+        <p>Upload Content</p>
+      </div>
     </div>
-  </div>
-  <div class="card" (click)="openRequests()" style="cursor:pointer;">
-    <div class="container">
-      <h4><b>REQUESTS</b></h4>
-      <p>View Requests</p>
+    <div class="card" (click)="openRequests()" style="cursor:pointer;">
+      <div class="container">
+        <h4><b>REQUESTS</b></h4>
+        <p>View Requests</p>
+      </div>
     </div>
   </div>
 </div>
