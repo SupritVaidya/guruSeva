@@ -5,4 +5,11 @@ body, .dashboard-bg {
 
 .dashboard-container .card, .dashboard-container app-card {
 	background: #fff !important;
+	transition: background 0.2s, color 0.2s;
+}
+
+.dashboard-container .card:hover, .dashboard-container app-card:hover {
+	background: #1976d2 !important;
+	color: #fff !important;
+	cursor: pointer;
 }

@@ -3,12 +3,20 @@
 	border-radius: 1.5rem;
 	background: #fff;
 	box-shadow: 0 4px 24px rgba(60,72,88,0.10);
-	transition: box-shadow 0.2s, transform 0.2s;
+	transition: box-shadow 0.2s, transform 0.2s, background 0.2s, color 0.2s;
 	cursor: pointer;
 }
 .custom-card:hover {
 	box-shadow: 0 8px 32px rgba(60,72,88,0.18);
 	transform: translateY(-4px) scale(1.02);
+	background: #1976d2 !important;
+	color: #fff !important;
+}
+
+:host ::ng-deep .custom-card:hover .badge.bg-gradient-primary {
+	background: #ffe066 !important;
+	color: #222 !important;
+	box-shadow: 0 2px 8px rgba(255,224,102,0.15);
 }
 .badge.bg-gradient-primary {
 	background: linear-gradient(90deg, #6366f1 0%, #2563eb 100%);

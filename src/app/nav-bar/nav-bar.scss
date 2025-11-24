@@ -9,6 +9,15 @@
 		font-size: 1.5rem;
 		letter-spacing: 1px;
 	}
+	.navbar-logo {
+		width: 48px;
+		height: 48px;
+		border-radius: 50%;
+		object-fit: cover;
+		background: #fff;
+		border: 2px solid #ffd23b;
+		margin-right: 12px;
+	}
 }
 
 // Style for the logout button

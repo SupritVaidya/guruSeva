@@ -49,11 +49,20 @@ body, .admin-panel-bg {
 }
 
 /* On mouse-over, add a deeper shadow */
-.card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  background-color: #007bff;
-  color: #fff;
-  transition: background 0.2s, color 0.2s;
+.card {
+  transition: box-shadow 0.3s, background 0.2s, color 0.2s;
+}
+.admin-card-row .card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2) !important;
+  background: #1976d2 !important;
+  color: #fff !important;
+}
+
+/* If you add a badge to admin cards, this will style it on hover like dashboard cards */
+:host ::ng-deep .card:hover .badge.bg-gradient-primary {
+  background: #ffe066 !important;
+  color: #222 !important;
+  box-shadow: 0 2px 8px rgba(255,224,102,0.15);
 }
 
 /* Add some padding inside the card container */
