@@ -32,9 +32,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Build connection string from environment variables
-var dbUser = Environment.GetEnvironmentVariable("DB_USER");
-var dbPass = Environment.GetEnvironmentVariable("DB_PASS");
-var connectionString = $"Server=db33277.databaseasp.net; Database=db33277; User Id={dbUser}; Password={dbPass}; Encrypt=False; MultipleActiveResultSets=True";
+//var dbUser = Environment.GetEnvironmentVariable("DB_USER");
+//var dbPass = Environment.GetEnvironmentVariable("DB_PASS");
+var connectionString = "Server=db33277.databaseasp.net; Database=db33277; User Id=db33277; Password=qF!7Q@8r4Lj-; Encrypt=False; MultipleActiveResultSets=True;";
 
 builder.Services.AddDbContext<GuruSevaDbContext>(options =>
     options.UseSqlServer(connectionString)
