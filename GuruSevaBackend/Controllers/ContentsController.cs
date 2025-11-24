@@ -24,7 +24,8 @@ namespace GuruSevaBackend.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Content>>> GetContents()
         {
-            return await _context.Contents.ToListAsync();
+            return await _context.Contents.OrderBy(c => c.SequenceNumber)
+            .ToListAsync();
         }
 
         // GET: api/Contents/5
