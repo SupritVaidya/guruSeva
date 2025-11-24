@@ -41,3 +41,5 @@ ScaffoldingReadMe.txt
 
 # Local environment settings
 appsettings.Development.json
+*.env
+*.env.production
