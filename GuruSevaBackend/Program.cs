@@ -4,27 +4,10 @@ using GuruSevaBackend.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// --- ADD THIS SECTION ---
-builder.Services.AddCors(options =>
-{
-  options.AddPolicy("AllowFrontend",
-      policy =>
-      {
-        // 1. Allow your Custom Domain (e.g. www.my-group.com)
-        // 2. Allow localhost (so you can still test on your PC)
-        policy.WithOrigins(
-                  "https://www.krupasindhu.in",
-                  "http://localhost:4200"
-                )
-                .AllowAnyMethod()
-                .AllowAnyHeader();
-      });
-});
 
-// Add CORS policy to allow any origin for development
 builder.Services.AddCors(options =>
 {
-  options.AddPolicy("AllowAngularDev",
+  options.AddPolicy("AllowAngular",
     policy => policy
       .AllowAnyOrigin()
       .AllowAnyHeader()
@@ -44,20 +27,16 @@ builder.Services.AddDbContext<GuruSevaDbContext>(options =>
 );
 
 
+
 var app = builder.Build();
 
-app.UseCors("AllowFrontend");
-
+app.UseCors("AllowAngular");
 
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
+  app.UseSwagger();
+  app.UseSwaggerUI();
 }
-
-// Use CORS policy
-app.UseCors("AllowAngularDev");
-
 
 app.UseHttpsRedirection();
 
