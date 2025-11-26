@@ -34,6 +34,8 @@
               "src/styles.scss"
             ]
           },
+            "outputPath": "dist",
+            "baseHref": "/guruseva/",
           "configurations": {
             "production": {
               "budgets": [
