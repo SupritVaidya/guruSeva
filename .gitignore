@@ -1,3 +1,50 @@
+# Ignore everything
+/*
+# Except environments folder and .gitignore
+!src/environments/
+!.gitignore
+# Node modules
+node_modules/
+
+# Build output
+dist/
+
+# Environment files
+src/environments/environment.local.ts
+src/environments/environment.dev.ts
+src/environments/environment.test.ts
+src/environments/environment.staging.ts
+
+# Backend secrets
+GuruSevaBackend/.env
+GuruSevaBackend/.env.production
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+
+# Misc
+*.swp
+*.swo
+
+# Angular build cache
+.angular/
+
+# Coverage reports
+coverage/
+
+# IIS logs (if present)
+GuruSevaBackend/LogFiles/
+
+# Do not ignore appsettings.json (keep in repo)
+!GuruSevaBackend/appsettings.json
 # See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
 
 # Compiled output
