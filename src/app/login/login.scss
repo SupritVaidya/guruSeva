@@ -48,3 +48,32 @@ button.btn-primary {
 button.btn-primary:hover {
 	background: linear-gradient(90deg, #2563eb 0%, #6366f1 100%);
 }
+
+// Responsive styles for mobile
+@media (max-width: 600px) {
+  .om-logo {
+    font-size: 2.2rem;
+    width: 56px;
+    height: 56px;
+  }
+  .card {
+    border-radius: 0.75rem;
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  }
+  .container {
+    padding: 0 0.5rem;
+  }
+  body, .login-bg {
+    padding: 0;
+    min-height: 100vh;
+  }
+  input, .form-control {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+  button.btn-primary {
+    font-size: 1rem;
+    padding: 0.5rem 1.2rem;
+  }
+}

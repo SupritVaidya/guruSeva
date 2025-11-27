@@ -32,3 +32,25 @@
   background-color: #0056b3;
   border-color: #0056b3;
 }
+
+// Responsive styles for mobile
+@media (max-width: 600px) {
+	.custom-navbar {
+		min-height: 48px;
+		height: 48px;
+		padding: 0.2rem 0.5rem;
+	}
+	.custom-navbar .navbar-brand {
+		font-size: 1rem;
+		letter-spacing: 0.5px;
+	}
+	.custom-navbar .navbar-logo {
+		width: 32px;
+		height: 32px;
+		margin-right: 6px;
+	}
+	.custom-navbar .btn.btn-outline-dark {
+		font-size: 0.9rem;
+		padding: 0.3rem 0.8rem;
+	}
+}

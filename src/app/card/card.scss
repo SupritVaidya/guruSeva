@@ -32,3 +32,24 @@
 	background: #f1f5ff;
 	padding: 4px;
 }
+
+// Responsive styles for mobile
+@media (max-width: 600px) {
+	.custom-card {
+		border-radius: 0.75rem;
+		padding: 1rem;
+		font-size: 1rem;
+		margin: 0.5rem 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.badge.bg-gradient-primary {
+		font-size: 0.9rem;
+		padding: 0.3rem 0.7rem;
+	}
+	.course-icon img {
+		width: 32px;
+		height: 32px;
+		padding: 2px;
+	}
+}

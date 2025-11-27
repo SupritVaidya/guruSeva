@@ -36,3 +36,22 @@
 	font-size: 1.15rem;
 	padding: 0.5rem 1.2rem;
 }
+
+// Responsive styles for mobile
+@media (max-width: 600px) {
+	.back-btn {
+		width: 36px;
+		height: 36px;
+		font-size: 1.2rem;
+		margin: 8px 0 8px 4px;
+	}
+	.requests-table-id, .requests-table-name {
+		font-size: 1rem;
+		word-break: break-word;
+	}
+	.approve-btn, .deny-btn {
+		min-width: 80px;
+		font-size: 1rem;
+		padding: 0.4rem 0.8rem;
+	}
+}

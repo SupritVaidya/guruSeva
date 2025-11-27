@@ -24,3 +24,25 @@
 	padding-right: 18px;
 	box-sizing: border-box;
 }
+
+// Responsive styles for mobile
+@media (max-width: 600px) {
+	.search-bar-container {
+		padding: 8px 0;
+	}
+	.search-bar-container .form-control {
+		height: 36px;
+		font-size: 1rem;
+		width: 98vw;
+		max-width: 98vw;
+		min-width: 80px;
+		padding-left: 8px;
+		padding-right: 8px;
+	}
+	.search-bar-container .btn {
+		height: 36px;
+		font-size: 1rem;
+		margin-left: 4px;
+		padding: 0.3rem 0.8rem;
+	}
+}
