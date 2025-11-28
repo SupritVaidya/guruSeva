@@ -54,12 +54,15 @@
 		height: 32px;
 		margin-right: 6px;
 	}
-	.custom-navbar .btn.btn-outline-dark {
-		font-size: 0.9rem;
-		padding: 0.3rem 0.8rem;
-		width: 100%;
-		margin-bottom: 0.3rem;
-		box-sizing: border-box;
+	 .custom-navbar .btn,
+	 .custom-navbar .btn.btn-outline-dark {
+		 font-size: 0.8rem;
+		 padding: 0.2rem 0.5rem;
+		 width: 90%;
+		 margin-bottom: 0.2rem;
+		 box-sizing: border-box;
+		 min-height: 32px;
+		 border-radius: 0.5rem;
 	}
 	.custom-navbar .header-buttons {
 		display: flex;
