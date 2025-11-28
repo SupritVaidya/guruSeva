@@ -72,3 +72,31 @@
 		margin-top: 0.3rem;
 	}
 }
+
+/* Adjust button sizes for iPhone SE dimensions */
+@media (max-width: 400px) {
+  .custom-navbar .btn,
+  .custom-navbar .btn.btn-outline-dark {
+    font-size: 0.7rem; /* Smaller size for narrow screens */
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+    width: 85%; /* Adjust width for better fit */
+    margin: 0.1rem auto; /* Center buttons */
+  }
+
+  .custom-navbar {
+    padding: 0.1rem 0.3rem;
+    min-height: 40px;
+    height: auto;
+  }
+
+  .custom-navbar .navbar-logo {
+    width: 28px;
+    height: 28px;
+    margin-right: 4px;
+  }
+
+  .custom-navbar .header-buttons {
+    gap: 0.2rem;
+  }
+}

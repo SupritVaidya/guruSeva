@@ -1,7 +1,6 @@
-
 .custom-card {
 	border-radius: 1.5rem;
-	background: #fff;
+	background: #fff; 
 	box-shadow: 0 4px 24px rgba(60,72,88,0.10);
 	transition: box-shadow 0.2s, transform 0.2s, background 0.2s, color 0.2s;
 	cursor: pointer;
@@ -52,4 +51,14 @@
 		height: 32px;
 		padding: 2px;
 	}
+}
+
+/* Responsive styles for screens smaller than 800px */
+@media (max-width: 800px) {
+  .custom-card {
+    width: 90%; /* Reduce overall width */
+    margin: 0.5rem auto; /* Center cards with reduced margin */
+    padding: 0.8rem; /* Adjust padding for smaller screens */
+    font-size: 0.9rem; /* Slightly smaller font size */
+  }
 }
