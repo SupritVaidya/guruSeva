@@ -39,10 +39,15 @@
 		min-height: 48px;
 		height: 48px;
 		padding: 0.2rem 0.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
+		justify-content: flex-start;
 	}
 	.custom-navbar .navbar-brand {
 		font-size: 1rem;
 		letter-spacing: 0.5px;
+		margin-bottom: 0.3rem;
 	}
 	.custom-navbar .navbar-logo {
 		width: 32px;
@@ -52,5 +57,15 @@
 	.custom-navbar .btn.btn-outline-dark {
 		font-size: 0.9rem;
 		padding: 0.3rem 0.8rem;
+		width: 100%;
+		margin-bottom: 0.3rem;
+		box-sizing: border-box;
+	}
+	.custom-navbar .header-buttons {
+		display: flex;
+		flex-direction: column;
+		gap: 0.3rem;
+		width: 100%;
+		margin-top: 0.3rem;
 	}
 }
