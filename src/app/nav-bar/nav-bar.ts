@@ -19,6 +19,15 @@ export class NavBar {
 
   logout() {
     localStorage.removeItem('isAdmin');
+    localStorage.removeItem('authToken'); // Remove auth token
+    sessionStorage.clear(); // Clear session storage if used
     this.router.navigate(['/']);
+    // Prevent back navigation to protected pages
+    setTimeout(() => {
+      window.history.pushState(null, '', location.href);
+      window.onpopstate = function () {
+        window.location.href = '/';
+      };
+    }, 100);
   }
 }
