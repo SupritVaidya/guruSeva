@@ -1,7 +1,20 @@
 <app-nav-bar></app-nav-bar>
-<div class="d-flex" style="min-height: 100vh;">
+<div class="d-flex" style="min-height: 100vh; position: relative;">
+	<!-- Hamburger menu for mobile -->
+	<button class="btn btn-outline-dark d-flex align-items-center justify-content-center d-md-none" style="position: absolute; top: 20px; left: 20px; width: 40px; height: 40px; border-radius: 8px; font-size: 1.5rem; z-index: 1100;" (click)="toggleMenu()" aria-label="Show content list">
+		<span style="font-size: 2rem;">&#9776;</span>
+	</button>
+	<!-- Content list dropdown/modal for mobile -->
+	<div *ngIf="menuOpen" class="position-absolute bg-white border shadow p-3 d-md-none" style="z-index: 1200; left: 20px; top: 70px; width: 280px; max-height: 70vh; overflow-y: auto;">
+		<div class="list-group list-group-flush">
+			<button *ngFor="let item of allContents" class="list-group-item list-group-item-action d-flex align-items-center" (click)="openContent(item.id)">
+				<span class="badge bg-primary me-2">{{ item.sequenceNumber }}</span>
+				<span>{{ item.name }}</span>
+			</button>
+		</div>
+	</div>
 	<!-- Sidebar index -->
-	<div class="border-end d-none d-md-block" style="width: 300px; min-height: 100vh; background-color: rgba(0, 0, 0, 0.8);">
+	<div class="border-end d-none d-md-block" style="width: 300px; height: 100vh; background-color: rgba(0, 0, 0, 0.8); overflow-y: auto;">
     	<div class="list-group list-group-flush">
         	<button *ngFor="let item of allContents" class="list-group-item list-group-item-action d-flex align-items-center" [class.active]="item.id === content?.id" (click)="openContent(item.id)">
             	<span class="badge bg-primary me-2">{{ item.sequenceNumber }}</span>
