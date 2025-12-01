@@ -55,6 +55,7 @@ export class CardContent implements OnInit {
   }
 
   openContent(id: number) {
+    this.menuOpen = false;
     this.router.navigate(['/content', id]);
   }
 }
