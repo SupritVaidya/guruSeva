@@ -7,8 +7,8 @@
 		</div>
 		<form (ngSubmit)="onSubmit()" #signupForm="ngForm" autocomplete="off">
 			<div class="mb-3">
-				<label for="username" class="form-label">Username</label>
-				<input type="text" id="username" name="username" class="form-control" required [(ngModel)]="username" placeholder="Enter your username">
+				<label for="username" class="form-label">Name</label>
+				<input type="text" id="username" name="username" class="form-control" required [(ngModel)]="username" placeholder="Plesase enter your FULL NAME">
 			</div>
 			<div class="mb-3">
 				<label for="password" class="form-label">Password</label>
@@ -28,4 +28,3 @@
 		</div>
 	</div>
 </div>
-<p>signup works!</p>

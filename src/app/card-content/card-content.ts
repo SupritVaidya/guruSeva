@@ -1,3 +1,4 @@
+import { ElementRef, HostListener } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,10 +13,23 @@ import { NavBar } from "../nav-bar/nav-bar";
   styleUrl: './card-content.scss',
 })
 export class CardContent implements OnInit {
+    menuOpen: boolean = false;
+    toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+    }
   content: any;
   allContents: any[] = [];
 
-  constructor(private route: ActivatedRoute, private contentService: ContentServices, private router: Router) {}
+  constructor(private route: ActivatedRoute, private contentService: ContentServices, private router: Router, private elRef: ElementRef) {}
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (!this.menuOpen) return;
+    const menu = this.elRef.nativeElement.querySelector('.position-absolute.bg-white');
+    const button = this.elRef.nativeElement.querySelector('button[aria-label="Show content list"]');
+    if (menu && !menu.contains(event.target as Node) && button && !button.contains(event.target as Node)) {
+      this.menuOpen = false;
+    }
+  }
 
   goBack() {
     this.router.navigate(['/dashboard']);
@@ -41,6 +55,7 @@ export class CardContent implements OnInit {
   }
 
   openContent(id: number) {
+    this.menuOpen = false;
     this.router.navigate(['/content', id]);
   }
 }

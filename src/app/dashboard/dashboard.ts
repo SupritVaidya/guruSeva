@@ -1,3 +1,4 @@
+import { ElementRef, HostListener } from '@angular/core';
 
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -18,9 +19,9 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
 })
 export class Dashboard implements OnInit {
   contents: any[] = [];
+  menuOpen: boolean = false;
   private searchTerm$ = new Subject<string>();
-
-  constructor(private contentService: ContentServices, private router: Router) {
+  constructor(private contentService: ContentServices, private router: Router, private elRef: ElementRef) {
     this.searchTerm$
       .pipe(
         debounceTime(300),
@@ -36,6 +37,20 @@ export class Dashboard implements OnInit {
           this.loadAll();
         }
       });
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    if (!this.menuOpen) return;
+    const menu = this.elRef.nativeElement.querySelector('.position-absolute.bg-white');
+    const button = this.elRef.nativeElement.querySelector('button[aria-label="Show content list"]');
+    if (menu && !menu.contains(event.target as Node) && button && !button.contains(event.target as Node)) {
+      this.menuOpen = false;
+    }
+  }
+
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
   }
 
   ngOnInit() {

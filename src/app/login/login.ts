@@ -26,6 +26,7 @@ export class Login {
       next: (user) => {
         if (user && (user.isApproved === true || user.IsApproved === true)) {
           localStorage.setItem('isAdmin', user.isAdmin ? 'true' : 'false');
+          localStorage.setItem('authToken', 'true'); // Set auth token for guard
           this.router.navigate(['/dashboard']);
         } else if (user && (user.isApproved === false || user.IsApproved === false)) {
           this.loginError = 'Request for approval pending';
