@@ -1,22 +1,7 @@
 <div class="dashboard-bg" style="overflow-x: hidden;">
   <app-nav-bar></app-nav-bar>
   <div style="margin: 17px;"></div>
-  <div class="d-flex align-items-center" style="gap: 1rem;">
-    <!-- Hamburger menu -->
-    <button class="btn btn-outline-dark d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-radius: 8px; font-size: 1.5rem;" (click)="toggleMenu()" aria-label="Show content list">
-      <span style="font-size: 2rem;">&#9776;</span>
-    </button>
-    <app-search-bar (searchTermChange)="onSearchTermChange($event)"></app-search-bar>
-  </div>
-  <!-- Content list dropdown/modal -->
-  <div *ngIf="menuOpen" class="position-absolute bg-white border shadow p-3" style="z-index: 1000; left: 20px; top: 70px; width: 280px; max-height: 70vh; overflow-y: auto;">
-    <div class="list-group list-group-flush">
-      <button *ngFor="let item of contents" class="list-group-item list-group-item-action d-flex align-items-center" (click)="openContent(item)">
-        <span class="badge bg-primary me-2">{{ item.sequenceNumber }}</span>
-        <span>{{ item.name }}</span>
-      </button>
-    </div>
-  </div>
+  <app-search-bar (searchTermChange)="onSearchTermChange($event)"></app-search-bar>
   <div class="dashboard-container py-4 px-2">
     <div class="row g-4">
       <div class="col-12 col-md-6 col-lg-4" *ngFor="let content of contents" (click)="openContent(content)" style="cursor:pointer;">
