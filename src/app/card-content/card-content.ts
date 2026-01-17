@@ -19,8 +19,11 @@ export class CardContent implements OnInit {
     }
   content: any;
   allContents: any[] = [];
+  isAdmin = false;
 
-  constructor(private route: ActivatedRoute, private contentService: ContentServices, private router: Router, private elRef: ElementRef) {}
+  constructor(private route: ActivatedRoute, private contentService: ContentServices, private router: Router, private elRef: ElementRef) {
+    this.isAdmin = localStorage.getItem('isAdmin') === 'true';
+  }
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
     if (!this.menuOpen) return;
@@ -29,6 +32,10 @@ export class CardContent implements OnInit {
     if (menu && !menu.contains(event.target as Node) && button && !button.contains(event.target as Node)) {
       this.menuOpen = false;
     }
+  }
+
+  editContent(id: number) {
+    this.router.navigate(['/content', id, 'edit']);
   }
 
   goBack() {

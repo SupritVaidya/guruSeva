@@ -40,6 +40,9 @@
 				<div class="fw-semibold">Audio:</div>
 				<audio controls controlsList="nodownload" [src]="content.audioUrl"></audio>
 			</div>
+			<div>
+				   <button *ngIf="isAdmin" class="btn btn-primary" (click)="editContent(content.id)">EDIT</button>
+			</div>
 		</div>
 	</div>
 </div>

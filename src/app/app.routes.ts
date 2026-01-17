@@ -21,4 +21,5 @@ export const routes: Routes = [
   { path: 'signup', component: Signup },
   { path: 'admin', component: AdminPanel, canActivate: [AuthGuard] },
   { path: 'requests', component: Requests, canActivate: [AuthGuard] },
+  { path: 'content/:id/edit', loadComponent: () => import('./content-details/content-details').then(m => m.ContentDetails), canActivate: [AuthGuard] },
 ];

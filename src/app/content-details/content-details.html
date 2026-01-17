@@ -1,0 +1,34 @@
+<div class="d-flex" style="min-height: 100vh; position: relative; background: #ffe066;">
+	<div class="flex-grow-1 py-4 px-4">
+		<div *ngIf="loading" class="text-center fs-4">Loading...</div>
+		<form *ngIf="!loading" class="card shadow p-4 w-100" style="max-width: 700px; margin: auto; background: #fffbe6;" (ngSubmit)="onSave()">
+			<div class="mb-3 d-flex align-items-center">
+				<button type="button" class="btn btn-secondary ms-auto" (click)="goBack()" aria-label="Back to Content" style="width: 40px; height: 40px; border-radius: 50%; font-size: 1.5rem; padding: 0;">
+					<span aria-hidden="true">&larr;</span>
+				</button>
+			</div>
+            
+            <div class="mb-3">
+				<label class="fw-semibold mb-1">Sequence Number:</label>
+				<input class="form-control" [(ngModel)]="content.sequenceNumber" name="sequenceNumber" type="number" />
+			</div>
+            <div class="mb-3">
+		        <label class="form-label fw-semibold">Name</label>
+		        <input class="form-control" [(ngModel)]="content.name" name="name" />
+	        </div>
+			<div class="mb-3 line-wrapper fs-4">
+				<label class="fw-semibold mb-1">श्लोक:</label>
+				<textarea class="form-control" [(ngModel)]="content.contentText" name="contentText" rows="15"></textarea>
+			</div>
+			<div *ngIf="content.audioUrl" class="mb-3">
+				<label class="fw-semibold mb-1">Audio URL:</label>
+				<input class="form-control mb-2" [(ngModel)]="content.audioUrl" name="audioUrl" />
+				<audio controls controlsList="nodownload" [src]="content.audioUrl"></audio>
+			</div>
+			<!-- Add more fields as needed -->
+			<button type="submit" class="btn btn-success mt-2" [disabled]="saving">{{ saving ? 'Saving...' : 'Save' }}</button>
+			<div *ngIf="saveSuccess" class="alert alert-success mt-3">Changes saved successfully!</div>
+			<div *ngIf="saveError" class="alert alert-danger mt-3">{{ saveError }}</div>
+		</form>
+	</div>
+</div>
